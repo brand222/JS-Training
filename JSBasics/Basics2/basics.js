@@ -65,7 +65,7 @@ const brandon = {
   lastName: "McDonald",
   birthYear: 1990,
   job: "Billionaire",
-  friends: ["Micah", "Jay", "Trey"],
+  friends: ["Micah", "Jay", "Trey", "Max"],
   hasDriversLicense: false,
   //here is a function expression within an object
   //any function attached to an object is a METHOD
@@ -112,4 +112,48 @@ console.log(brandon.calcAge());
 console.log(brandon["calcAge"]());
 console.log(brandon.getSummary());
 
-//OTHER OBJECT METHODS
+console.log(
+  "==============================For Loops============================="
+);
+for (let i = 1; i <= 10; i++) {
+  if (i % 2 !== 0) {
+    console.log(`Lifting weights repetition ${i}`);
+  } else if (i === 8) {
+    break;
+  }
+}
+
+//looping and adding elements to a new array
+let newFriends = [];
+for (let j = 0; j < brandon.friends.length; j++) {
+  newFriends.push(typeof brandon.friends[j]);
+  console.log(typeof b);
+}
+console.log(newFriends);
+
+//looping backwards
+for (let i = brandon.friends.length - 1; i > 0; i--) {
+  console.log(brandon.friends[i]);
+}
+
+console.log(
+  "==============================While Loops============================="
+);
+let rep = 1;
+while (rep <= 10) {
+  console.log(`rep ${rep}`);
+  rep++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+console.log(dice);
+
+while (dice != 6) {
+  let counter = 0;
+  console.log(`You rolled a ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+  counter++;
+  if (dice === 6) {
+    console.log(`you rolled a ${dice} and it took ${counter} times!`);
+  }
+}
