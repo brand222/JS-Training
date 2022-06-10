@@ -1,14 +1,4 @@
 'use strict'
-
-// //we found the message element
-// console.log(document.querySelector('.message'))
-// //now create a random number
-// document.querySelector('.message').textContent = 'Correct Number!'
-// document.querySelector('.number').textContent = 13
-// document.querySelector('.score').textContent = 10
-// console.log(
-//     `the value of the field is ${(document.querySelector('.guess').value = 23)}`
-// )
 let secretNumber = Math.floor(Math.random() * 20) + 1
 
 //add an event listener for the check button
