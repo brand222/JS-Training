@@ -13,6 +13,7 @@ const player0TotalScore = document.getElementById('score--0')
 const player1TotalScore = document.getElementById('score--1')
 let scores, currentScore, activePlayer, playing
 
+//initialize function for setting everything back to default
 const init = function () {
     playing = true
     //array of scores
@@ -41,17 +42,23 @@ const switchPlayer = function () {
     player1Section.classList.toggle('player--active')
 }
 
+//roll dice functionality
 btnRollDice.addEventListener('click', function () {
     if (playing) {
+        //generate a random number
         let diceRoll = Math.floor(Math.random() * 6) + 1
         console.log(`your roll is ${diceRoll}`)
+        //display the specific dice image
         diceDisplay.src = `dice-${diceRoll}.png`
+        //display the dice
         diceDisplay.classList.remove('hidden')
+        //if the roll does NOT equal one, execute this logic
         if (diceRoll !== 1) {
             currentScore += diceRoll
             document.getElementById(`current--${activePlayer}`).textContent =
                 currentScore
         } else {
+            //otherwise switch players
             switchPlayer()
         }
     }
@@ -61,19 +68,21 @@ btnHold.addEventListener('click', function () {
     if (playing) {
         //1. Add current score to active player's total score
         scores[activePlayer] += currentScore
-
+        //display the total score on the DOM
         document.getElementById(`score--${activePlayer}`).textContent =
             scores[activePlayer]
 
-        //2. Check score is >= 100
-
+        // Check score is >= 100
         if (scores[activePlayer] >= 100) {
-            //finish the game
+            //if it is, set playing to false
             playing = false
+            //hide the dice
             diceDisplay.classList.add('hidden')
+            //and display the winner scheme
             document
                 .querySelector(`.player--${activePlayer}`)
                 .classList.add('player--winner')
+            //and remove that the other user is active
             document
                 .querySelector(`.player--${activePlayer}`)
                 .classList.remove('player--active')
